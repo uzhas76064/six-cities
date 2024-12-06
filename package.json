@@ -26,8 +26,7 @@
     ],
     "extends": [
       "react-app",
-      "react-app/jest",
-      "htmlacademy/react-typescript"
+      "react-app/jest"
     ],
     "parserOptions": {
       "project": [
