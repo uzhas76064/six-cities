@@ -1,10 +1,11 @@
-import Main from '../main/main';
-import {AppProps} from '../../types/interfaces';
+import { Main } from '../../pages/main/main';
 
-function App({places}: AppProps): JSX.Element {
-  return (
-    <Main places={places}/>
-  );
+type AppProps = {
+  offersCount: number
+}
+
+function App({ offersCount }: AppProps): JSX.Element {
+  return <Main offersCount={offersCount} />;
 }
 
 export default App;
