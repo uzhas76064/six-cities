@@ -9,7 +9,7 @@ export const FavoritesSection = ({favorites}: FavoritesSectionProps) => {
   return (
     <section className="favorites">
       <h1 className="favorites__title">Saved listing</h1>
-      <FavoritesList/>
+      <FavoritesList favorites={favorites}/>
     </section>
   )
 }

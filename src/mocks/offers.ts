@@ -19,7 +19,7 @@ export const mockOffers: Offer[] = [
       longitude: 2.2945,
       zoom: 16
     },
-    isFavorite: true,
+    isFavorite: true, // Избранное
     isPremium: true,
     rating: 4.8,
     previewImage: "https://images.unsplash.com/photo-1564013799919-ab600027ffc6?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80",
@@ -57,7 +57,7 @@ export const mockOffers: Offer[] = [
       longitude: -73.9683,
       zoom: 16
     },
-    isFavorite: false,
+    isFavorite: false, // Не в избранном
     isPremium: false,
     rating: 4.3,
     previewImage: "https://images.unsplash.com/photo-1502005229762-cf1b2da7c5d6?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80",
@@ -95,7 +95,7 @@ export const mockOffers: Offer[] = [
       longitude: 139.7017,
       zoom: 16
     },
-    isFavorite: true,
+    isFavorite: true, // Избранное
     isPremium: true,
     rating: 4.9,
     previewImage: "https://images.unsplash.com/photo-1522708323590-d24dbb6b0267?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80",
@@ -113,6 +113,44 @@ export const mockOffers: Offer[] = [
       "https://images.unsplash.com/photo-1522708323590-d24dbb6b0267?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80",
       "https://images.unsplash.com/photo-1484154218962-a197022b5858?ixlib=rb-1.2.1&auto=format&fit=crop&w=1353&q=80",
       "https://images.unsplash.com/photo-1505692952047-1a78307da8f2?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80"
+    ]
+  },
+  {
+    id: 4,
+    title: "Charming Villa in Tuscany",
+    type: "villa",
+    price: 300,
+    city: {
+      name: "Florence",
+      location: {
+        latitude: 43.7696,
+        longitude: 11.2558,
+        zoom: 12
+      }
+    },
+    location: {
+      latitude: 43.7714,
+      longitude: 11.2541,
+      zoom: 16
+    },
+    isFavorite: true, // Избранное
+    isPremium: false,
+    rating: 4.7,
+    previewImage: "https://images.unsplash.com/photo-1570129477492-45c003edd2be?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80",
+    description: "A charming villa surrounded by the beautiful hills of Tuscany.",
+    bedrooms: 3,
+    maxAdults: 6,
+    goods: ["Wi-Fi", "Pool", "Kitchen", "Garden", "Parking"],
+    host: {
+      id: 104,
+      name: "Giovanni Rossi",
+      isPro: false,
+      avatarUrl: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80"
+    },
+    images: [
+      "https://images.unsplash.com/photo-1570129477492-45c003edd2be?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80",
+      "https://images.unsplash.com/photo-1570129477492-45c003edd2be?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80",
+      "https://images.unsplash.com/photo-1570129477492-45c003edd2be?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80"
     ]
   }
 ];

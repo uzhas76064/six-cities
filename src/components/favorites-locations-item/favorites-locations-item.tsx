@@ -1,6 +1,11 @@
 import {FavoritesPlaces} from "../favorites-places/favorites-places";
+import {Offer} from "../../types/Offer";
 
-export const FavoritesLocationsItem = () => {
+type FavoritesLocationItemProps = {
+  favorites: Offer[]
+}
+
+export const FavoritesLocationsItem = ({favorites}: FavoritesLocationItemProps) => {
   return (
     <li className="favorites__locations-items">
       <div className="favorites__locations locations locations--current">
@@ -10,7 +15,7 @@ export const FavoritesLocationsItem = () => {
           </a>
         </div>
       </div>
-      <FavoritesPlaces/>
+      <FavoritesPlaces favorites={favorites}/>
     </li>
   )
 }
