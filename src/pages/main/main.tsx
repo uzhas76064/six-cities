@@ -1,8 +1,11 @@
 import { Card } from '../../components/card/card';
 import {NavLink} from "react-router-dom";
+import {Offer} from "../../types/Offer";
+import offers from "../../mocks/offers";
 
 type MainProps = {
-    offersCount: number
+    offersCount?: number
+    offers: Offer[]
 }
 
 const Main = ({ offersCount = 0 }: MainProps): JSX.Element => {
@@ -77,7 +80,9 @@ const Main = ({ offersCount = 0 }: MainProps): JSX.Element => {
               </ul>
             </form>
             <div className="cities__places-list places__list tabs__content">
-              {Array.from({length: offersCount}, () => <Card/>)}
+              {offers.map((offer: Offer) => {
+                return <Card offer={offer} key={offer.id}/>
+              })}
             </div>
           </section>
           <div className="cities__right-section">
