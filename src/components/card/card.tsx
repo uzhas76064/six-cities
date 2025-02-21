@@ -5,12 +5,12 @@ type CardProps = {
 }
 
 const Card = ({offer}:CardProps): JSX.Element => {
-  const {price, previewImage, type, rating, description} = offer;
+  const {price, previewImage, type, rating, description, isPremium} = offer;
 
   return (
     <article className="cities__place-card place-card">
       <div className="place-card__mark">
-        <span>Premium</span>
+        <span>{isPremium ? "Premium" : "Base"}</span>
       </div>
       <div className="cities__image-wrapper place-card__image-wrapper">
         <a href="#">
