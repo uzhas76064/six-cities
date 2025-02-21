@@ -1,14 +1,21 @@
 import {Offer} from "../../types/Offer";
+import {useState} from "react";
 
 type CardProps = {
   offer: Offer;
 }
 
 const Card = ({offer}:CardProps): JSX.Element => {
-  const {price, previewImage, type, rating, description, isPremium} = offer;
+  const {id, price, previewImage, type, rating, description, isPremium} = offer;
+  const [activeId, setActiveId] = useState<number | null>(null);
+
+  const handleMouseOfferEnter = (id: number) => {
+    setActiveId(id);
+    // console.log(activeId)
+  }
 
   return (
-    <article className="cities__place-card place-card">
+    <article className="cities__place-card place-card" onMouseEnter={() => handleMouseOfferEnter(id)}>
       <div className="place-card__mark">
         <span>{isPremium ? "Premium" : "Base"}</span>
       </div>
