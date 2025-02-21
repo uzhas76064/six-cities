@@ -1,6 +1,6 @@
 import {Offer} from "../types/Offer";
 
-const mockOffers: Offer[] = [
+export const mockOffers: Offer[] = [
   {
     id: 1,
     title: "Luxury Apartment in Downtown",
@@ -22,7 +22,7 @@ const mockOffers: Offer[] = [
     isFavorite: true,
     isPremium: true,
     rating: 4.8,
-    previewImage: "https://example.com/images/1.jpg",
+    previewImage: "https://images.unsplash.com/photo-1564013799919-ab600027ffc6?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80",
     description: "A luxurious apartment with a stunning view of the Eiffel Tower.",
     bedrooms: 2,
     maxAdults: 4,
@@ -31,12 +31,12 @@ const mockOffers: Offer[] = [
       id: 101,
       name: "Jean Dupont",
       isPro: true,
-      avatarUrl: "https://example.com/avatars/jean.jpg"
+      avatarUrl: "https://images.unsplash.com/photo-1535713875002-d1d0cf377fde?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80"
     },
     images: [
-      "https://example.com/images/1_1.jpg",
-      "https://example.com/images/1_2.jpg",
-      "https://example.com/images/1_3.jpg"
+      "https://images.unsplash.com/photo-1564013799919-ab600027ffc6?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80",
+      "https://images.unsplash.com/photo-1494526585095-c41746248156?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80",
+      "https://images.unsplash.com/photo-1502672260266-1c1ef2d93688?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80"
     ]
   },
   {
@@ -60,7 +60,7 @@ const mockOffers: Offer[] = [
     isFavorite: false,
     isPremium: false,
     rating: 4.3,
-    previewImage: "https://example.com/images/2.jpg",
+    previewImage: "https://images.unsplash.com/photo-1502005229762-cf1b2da7c5d6?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80",
     description: "A cozy studio located just a few blocks from Central Park.",
     bedrooms: 1,
     maxAdults: 2,
@@ -69,12 +69,12 @@ const mockOffers: Offer[] = [
       id: 102,
       name: "Emily Smith",
       isPro: false,
-      avatarUrl: "https://example.com/avatars/emily.jpg"
+      avatarUrl: "https://images.unsplash.com/photo-1438761681033-6461ffad8d80?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80"
     },
     images: [
-      "https://example.com/images/2_1.jpg",
-      "https://example.com/images/2_2.jpg",
-      "https://example.com/images/2_3.jpg"
+      "https://images.unsplash.com/photo-1502005229762-cf1b2da7c5d6?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80",
+      "https://images.unsplash.com/photo-1505691938895-1758d7feb511?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80",
+      "https://images.unsplash.com/photo-1505873242700-f289a29e1e0f?ixlib=rb-1.2.1&auto=format&fit=crop&w=1355&q=80"
     ]
   },
   {
@@ -98,7 +98,7 @@ const mockOffers: Offer[] = [
     isFavorite: true,
     isPremium: true,
     rating: 4.9,
-    previewImage: "https://example.com/images/3.jpg",
+    previewImage: "https://images.unsplash.com/photo-1522708323590-d24dbb6b0267?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80",
     description: "A modern loft in the heart of Shibuya, close to shopping and nightlife.",
     bedrooms: 1,
     maxAdults: 3,
@@ -107,12 +107,12 @@ const mockOffers: Offer[] = [
       id: 103,
       name: "Yuki Tanaka",
       isPro: true,
-      avatarUrl: "https://example.com/avatars/yuki.jpg"
+      avatarUrl: "https://images.unsplash.com/photo-1543610892-0b1f7e6d8ac1?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80"
     },
     images: [
-      "https://example.com/images/3_1.jpg",
-      "https://example.com/images/3_2.jpg",
-      "https://example.com/images/3_3.jpg"
+      "https://images.unsplash.com/photo-1522708323590-d24dbb6b0267?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80",
+      "https://images.unsplash.com/photo-1484154218962-a197022b5858?ixlib=rb-1.2.1&auto=format&fit=crop&w=1353&q=80",
+      "https://images.unsplash.com/photo-1505692952047-1a78307da8f2?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80"
     ]
   }
 ];
