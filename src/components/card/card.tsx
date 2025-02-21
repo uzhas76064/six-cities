@@ -1,5 +1,6 @@
 import {Offer} from "../../types/Offer";
 import {useState} from "react";
+import {Link, useParams} from "react-router-dom";
 
 type CardProps = {
   offer: Offer;
@@ -20,7 +21,7 @@ const Card = ({offer}:CardProps): JSX.Element => {
         <span>{isPremium ? "Premium" : "Base"}</span>
       </div>
       <div className="cities__image-wrapper place-card__image-wrapper">
-        <a href="#">
+        <Link to={`/offer/${activeId}`}>
           <img
             className="place-card__image"
             src={`${previewImage}`}
@@ -29,7 +30,7 @@ const Card = ({offer}:CardProps): JSX.Element => {
             alt="Place image"
             style={{height: 200}}
           />
-        </a>
+        </Link>
       </div>
       <div className="place-card__info">
         <div className="place-card__price-wrapper">
@@ -51,7 +52,7 @@ const Card = ({offer}:CardProps): JSX.Element => {
           </div>
         </div>
         <h2 className="place-card__name">
-          <a href="#">{description}</a>
+          <Link to={`/offer/${activeId}`}>{description}</Link>
         </h2>
         <p className="place-card__type">{type}</p>
       </div>

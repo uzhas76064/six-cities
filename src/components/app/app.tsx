@@ -23,7 +23,7 @@ function App({offers}: OfferProps): JSX.Element {
           <Favorites favorites={offers}/>
         </PrivateRoute>
       }/>
-      <Route path="offer/:id" element={
+      <Route path="offer/:pageId" element={
         <PrivateRoute>
           <Room/>
         </PrivateRoute>
