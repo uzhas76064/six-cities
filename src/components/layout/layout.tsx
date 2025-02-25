@@ -1,6 +1,8 @@
-import {Link, Outlet} from "react-router-dom";
+import {Link, Outlet, useLocation} from "react-router-dom";
 
 const Layout = (): JSX.Element => {
+  const location = useLocation();
+
   return (
     <>
       <header className="header">
@@ -39,7 +41,7 @@ const Layout = (): JSX.Element => {
           </div>
         </div>
       </header>
-      <div className="page page--gray page--main">
+      <div className={location.pathname === "/" ? "page page--gray page--main": "page page--gray"}>
         <main className="page__main page__main--index">
           <Outlet/>
         </main>
