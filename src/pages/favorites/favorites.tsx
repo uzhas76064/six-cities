@@ -11,7 +11,7 @@ const Favorites = ({favorites}: FavoritesProps): JSX.Element => {
     return offer.isFavorite
   })
 
-  console.log(filteredOffers)
+  // console.log(filteredOffers)
 
   return (
     <div className="page">
