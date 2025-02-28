@@ -1,13 +1,13 @@
 import {Offer} from "../../types/Offer";
 import {useState} from "react";
-import {Link, useParams} from "react-router-dom";
+import {Link} from "react-router-dom";
 
 type CardProps = {
   offer: Offer;
 }
 
 const Card = ({offer}:CardProps): JSX.Element => {
-  const {id, price, previewImage, type, rating, description, isPremium} = offer;
+  const {id, price, previewImage, type, rating, description, isPremium, title} = offer;
   const [activeId, setActiveId] = useState<number | null>(null);
 
   const handleMouseOfferEnter = (id: number) => {
@@ -27,7 +27,7 @@ const Card = ({offer}:CardProps): JSX.Element => {
             src={`${previewImage}`}
             width="260"
             height="200"
-            alt="Place image"
+            alt={title}
             style={{height: 200}}
           />
         </Link>
