@@ -7,22 +7,21 @@ type FavoriteCardProps = {
 }
 
 export const FavoritesCard = ({place}: FavoriteCardProps) => {
-  // console.log(place)
   const {price, title, type, id, previewImage} = place;
   const [activeId, setActiveId] = useState<number | null>(null);
 
   const handleMouseOfferEnter = (id: number | null) => {
     setActiveId(id);
-    // console.log(activeId)
+    console.log(activeId)
   }
 
   return (
     <article onMouseEnter={() => handleMouseOfferEnter(id)} className="favorites__card place-card">
       <div className="favorites__image-wrapper place-card__image-wrapper">
-        <a href="#">
+        <Link to={`/offer/${activeId}`}>
           <img className="place-card__image" src={previewImage} width={150} height={110}
                alt="Place image"/>
-        </a>
+        </Link>
       </div>
       <div className="favorites__card-info place-card__info">
         <div className="place-card__price-wrapper">
