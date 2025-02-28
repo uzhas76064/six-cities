@@ -206,5 +206,3 @@ export const Room = ({offers}: RoomProps): JSX.Element => {
     </div>
   </div>)
 }
-
-export default {Room};
