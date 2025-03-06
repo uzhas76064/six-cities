@@ -15,8 +15,8 @@ export const mockOffers: Offer[] = [
       }
     },
     location: {
-      latitude: 48.8584,
-      longitude: 2.2945,
+      latitude: 52.3909553943508,
+      longitude: 4.85309666406198,
       zoom: 16
     },
     isFavorite: true, // Избранное
@@ -53,8 +53,8 @@ export const mockOffers: Offer[] = [
       }
     },
     location: {
-      latitude: 40.7851,
-      longitude: -73.9683,
+      latitude: 52.3609553943508,
+      longitude: 4.85309666406198,
       zoom: 16
     },
     isFavorite: false, // Не в избранном
@@ -91,8 +91,8 @@ export const mockOffers: Offer[] = [
       }
     },
     location: {
-      latitude: 35.6586,
-      longitude: 139.7017,
+      latitude: 52.3909553943508,
+      longitude: 4.929309666406198,
       zoom: 16
     },
     isFavorite: true, // Избранное
@@ -129,8 +129,8 @@ export const mockOffers: Offer[] = [
       }
     },
     location: {
-      latitude: 43.7714,
-      longitude: 11.2541,
+      latitude: 52.3809553943508,
+      longitude: 4.939309666406198,
       zoom: 16
     },
     isFavorite: true, // Избранное
