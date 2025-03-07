@@ -9,6 +9,7 @@ import PrivateRoute from "../private-route/private-route";
 import {Offer} from "../../types/Offer";
 import {City} from "../../types/City";
 import city from "../../mocks/city";
+import {comments} from "../../mocks/comments";
 
 type OfferProps = {
   city: City;
@@ -28,7 +29,7 @@ function App({offers}: OfferProps): JSX.Element {
       }/>
       <Route path="offer/:pageId" element={
         <PrivateRoute>
-          <Room offers={offers} nearbyOffers={offers}/>
+          <Room offers={offers} nearbyOffers={offers} comments={comments}/>
         </PrivateRoute>
       }/>
     </Route>

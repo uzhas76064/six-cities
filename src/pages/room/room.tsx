@@ -4,13 +4,15 @@ import PropertyReviews from "../../components/property-reviews/property-reviews"
 import Map from "../../components/map/map";
 import city from "../../mocks/city";
 import {Card} from "../../components/card/card";
+import {Comment} from "../../types/Comment";
 
 type RoomProps = {
   offers: Offer[],
   nearbyOffers: Offer[];
+  comments: Comment[];
 }
 
-export const Room = ({offers, nearbyOffers}: RoomProps): JSX.Element => {
+export const Room = ({offers, nearbyOffers, comments}: RoomProps): JSX.Element => {
   const {pageId} = useParams();
   const room = offers.find(offer => offer.id === Number(pageId));
 
@@ -97,7 +99,7 @@ export const Room = ({offers, nearbyOffers}: RoomProps): JSX.Element => {
               </p>
             </div>
           </div>
-          <PropertyReviews/>
+          <PropertyReviews comments={comments}/>
         </div>
       </div>
       <Map city={city} locations={nearbyOffers.map((offer) => offer.location)} place="property" />

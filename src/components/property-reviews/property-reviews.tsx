@@ -1,8 +1,12 @@
-import { FormEvent, ChangeEvent, useState } from "react";
-import {comments} from "../../mocks/comments";
+import { ChangeEvent, useState } from "react";
 import {ReviewItem} from "../review-item/review-item";
+import {Comment} from "../../types/Comment";
 
-const PropertyReviews = () => {
+type PropertyReviewsProps = {
+  comments: Comment[]
+}
+
+const PropertyReviews = ({comments}: PropertyReviewsProps) => {
   const [formData, setFormData] = useState({
     reviewText: "",
     rating: 0,
