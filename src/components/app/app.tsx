@@ -28,7 +28,7 @@ function App({offers}: OfferProps): JSX.Element {
       }/>
       <Route path="offer/:pageId" element={
         <PrivateRoute>
-          <Room offers={offers}/>
+          <Room offers={offers} nearbyOffers={offers}/>
         </PrivateRoute>
       }/>
     </Route>

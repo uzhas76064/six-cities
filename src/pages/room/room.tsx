@@ -1,12 +1,15 @@
 import {useParams} from "react-router-dom";
 import {Offer} from "../../types/Offer";
 import PropertyReviews from "../../components/property-reviews/property-reviews";
+import Map from "../../components/map/map";
+import city from "../../mocks/city";
 
 type RoomProps = {
-  offers: Offer[]
+  offers: Offer[],
+  nearbyOffers: Offer[];
 }
 
-export const Room = ({offers}: RoomProps): JSX.Element => {
+export const Room = ({offers, nearbyOffers}: RoomProps): JSX.Element => {
   const {pageId} = useParams();
   const room = offers.find(offer => offer.id === Number(pageId));
 
@@ -96,7 +99,7 @@ export const Room = ({offers}: RoomProps): JSX.Element => {
           <PropertyReviews/>
         </div>
       </div>
-      <section className="property__map map"/>
+      <Map city={city} locations={nearbyOffers.map((offer) => offer.location)} place="property" />
     </section>
     <div className="container">
       <section className="near-places places">
