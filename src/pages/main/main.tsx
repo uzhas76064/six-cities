@@ -4,6 +4,7 @@ import {City} from "../../types/City";
 import TabsList from "../../components/tabs-list/tabs-list";
 import PlacesSorter from "../../components/places-sorter/places-sorter";
 import CardsList from "../../components/cards-list/cards-list";
+import {useAppSelector} from "../../hooks/hooks";
 
 type MainProps = {
     city: City
@@ -11,6 +12,11 @@ type MainProps = {
 }
 
 const Main = ({ city, offers }: MainProps): JSX.Element => {
+  const activeCity = useAppSelector((state) => state.city);
+  const filteredOffers = offers.filter((offer) => offer.city.name === activeCity.name);
+
+  const offersCount: number = filteredOffers.length;
+
   return (
     <>
       <h1 className="visually-hidden">Cities</h1>
@@ -23,7 +29,7 @@ const Main = ({ city, offers }: MainProps): JSX.Element => {
         <div className="cities__places-container container">
           <section className="cities__places places">
             <h2 className="visually-hidden">Places</h2>
-            <b className="places__found">{offers.length} places to stay in Amsterdam</b>
+            <b className="places__found">{offersCount} {offersCount > 1 ? "places" : "place"} to stay in {activeCity.name}</b>
             <form className="places__sorting" action="#" method="get">
               <span className="places__sorting-caption">Sort by</span>
               <span className="places__sorting-type" tabIndex={0}>
@@ -34,7 +40,7 @@ const Main = ({ city, offers }: MainProps): JSX.Element => {
               </span>
               <PlacesSorter/>
             </form>
-            <CardsList offers={offers}/>
+            <CardsList offers={filteredOffers}/>
           </section>
           <div className="cities__right-section">
             <Map locations={offers.map(offer => offer.location)} city={city}/>
