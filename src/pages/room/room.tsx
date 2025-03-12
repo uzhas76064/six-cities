@@ -4,6 +4,7 @@ import PropertyReviews from "../../components/property-reviews/property-reviews"
 import Map from "../../components/map/map";
 import {Card} from "../../components/card/card";
 import {Comment} from "../../types/Comment";
+import {useAppSelector} from "../../hooks/hooks";
 
 type RoomProps = {
   offers: Offer[],
@@ -14,6 +15,7 @@ type RoomProps = {
 export const Room = ({offers, nearbyOffers, comments}: RoomProps): JSX.Element => {
   const {pageId} = useParams();
   const room = offers.find(offer => offer.id === Number(pageId));
+  const activeCity = useAppSelector((state) => state.city);
 
   if (!room) {
     return <div className="page">Room not found</div>
@@ -26,7 +28,7 @@ export const Room = ({offers, nearbyOffers, comments}: RoomProps): JSX.Element =
           {room ? room.images.map((image) => {
             return (
               <div key={image} className="property__image-wrapper">
-                <img className="property__image" src={image} alt="Photo studio"/>
+                <img className="property__image" src={image} alt="studio"/>
               </div>
             )
           }) : "No photos"}
@@ -101,7 +103,7 @@ export const Room = ({offers, nearbyOffers, comments}: RoomProps): JSX.Element =
           <PropertyReviews comments={comments}/>
         </div>
       </div>
-      {/*<Map city={city} locations={nearbyOffers.map((offer) => offer.location)} place="property" />*/}
+      <Map city={activeCity} locations={nearbyOffers.map((offer) => offer.location)} place="property" />
     </section>
     <div className="container">
       <section className="near-places places">

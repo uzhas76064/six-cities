@@ -11,7 +11,7 @@ type MainProps = {
 
 const Main = ({ offers }: MainProps): JSX.Element => {
   const activeCity = useAppSelector((state) => state.city);
-  const filteredOffers = offers.filter((offer) => offer.city.name === activeCity.name);
+  const filteredOffers = useAppSelector((state) => state.offers.filter((offer) => offer.city.name === state.city.name));
 
   const offersCount: number = filteredOffers.length;
 
