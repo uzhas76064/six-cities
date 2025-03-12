@@ -2,7 +2,6 @@ import {useParams} from "react-router-dom";
 import {Offer} from "../../types/Offer";
 import PropertyReviews from "../../components/property-reviews/property-reviews";
 import Map from "../../components/map/map";
-import city from "../../mocks/city";
 import {Card} from "../../components/card/card";
 import {Comment} from "../../types/Comment";
 
@@ -102,7 +101,7 @@ export const Room = ({offers, nearbyOffers, comments}: RoomProps): JSX.Element =
           <PropertyReviews comments={comments}/>
         </div>
       </div>
-      <Map city={city} locations={nearbyOffers.map((offer) => offer.location)} place="property" />
+      {/*<Map city={city} locations={nearbyOffers.map((offer) => offer.location)} place="property" />*/}
     </section>
     <div className="container">
       <section className="near-places places">

@@ -7,12 +7,9 @@ import NotFound from "../../pages/not-found/not-found";
 import {Room} from "../../pages/room/room";
 import PrivateRoute from "../private-route/private-route";
 import {Offer} from "../../types/Offer";
-import {City} from "../../types/City";
-import city from "../../mocks/city";
 import {comments} from "../../mocks/comments";
 
 type OfferProps = {
-  city: City;
   offers: Offer[];
 }
 
@@ -20,7 +17,7 @@ function App({offers}: OfferProps): JSX.Element {
   return (
   <Routes>
     <Route path="/" element={<Layout/>}>
-      <Route index element={<Main offers={offers} city={city} />}/>
+      <Route index element={<Main offers={offers} />}/>
       <Route path="login" element={<Login/>}/>
       <Route path="favorites" element={
         <PrivateRoute>

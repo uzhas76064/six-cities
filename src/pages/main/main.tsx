@@ -1,17 +1,15 @@
 import {Offer} from "../../types/Offer";
 import Map from "../../components/map/map";
-import {City} from "../../types/City";
 import TabsList from "../../components/tabs-list/tabs-list";
 import PlacesSorter from "../../components/places-sorter/places-sorter";
 import CardsList from "../../components/cards-list/cards-list";
 import {useAppSelector} from "../../hooks/hooks";
 
 type MainProps = {
-    city: City
     offers: Offer[]
 }
 
-const Main = ({ city, offers }: MainProps): JSX.Element => {
+const Main = ({ offers }: MainProps): JSX.Element => {
   const activeCity = useAppSelector((state) => state.city);
   const filteredOffers = offers.filter((offer) => offer.city.name === activeCity.name);
 
@@ -43,7 +41,7 @@ const Main = ({ city, offers }: MainProps): JSX.Element => {
             <CardsList offers={filteredOffers}/>
           </section>
           <div className="cities__right-section">
-            <Map locations={offers.map(offer => offer.location)} city={city}/>
+            <Map locations={filteredOffers.map(offer => offer.location)} city={activeCity}/>
           </div>
         </div>
       </div>
