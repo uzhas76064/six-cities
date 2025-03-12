@@ -4,6 +4,8 @@ import App from './components/app/app';
 import {BrowserRouter} from "react-router-dom";
 import {mockOffers} from './mocks/offers';
 import city from "./mocks/city";
+import {Provider} from "react-redux";
+import {store} from "./store";
 
 const root = ReactDOM.createRoot(
   document.getElementById('root') as HTMLElement,
@@ -12,7 +14,9 @@ const root = ReactDOM.createRoot(
 root.render(
   <React.StrictMode>
     <BrowserRouter>
-      <App offers={mockOffers} city={city}/>
+      <Provider store={store}>
+        <App offers={mockOffers} city={city}/>
+      </Provider>
     </BrowserRouter>
   </React.StrictMode>,
 );
