@@ -1,8 +1,8 @@
 import { Card } from '../../components/card/card';
-import {NavLink} from "react-router-dom";
 import {Offer} from "../../types/Offer";
 import Map from "../../components/map/map";
 import {City} from "../../types/City";
+import TabsList from "../../components/tabs-list/tabs-list";
 
 type MainProps = {
     city: City
@@ -15,38 +15,7 @@ const Main = ({ city, offers }: MainProps): JSX.Element => {
       <h1 className="visually-hidden">Cities</h1>
       <div className="tabs">
         <section className="locations container">
-          <ul className="locations__list tabs__list">
-            <li className="locations__item">
-              <NavLink className="locations__item-link tabs__item" to="#">
-                <span>Paris</span>
-              </NavLink>
-            </li>
-            <li className="locations__item">
-              <NavLink className="locations__item-link tabs__item" to="#">
-                <span>Cologne</span>
-              </NavLink>
-            </li>
-            <li className="locations__item">
-              <NavLink className="locations__item-link tabs__item" to="#">
-                <span>Brussels</span>
-              </NavLink>
-            </li>
-            <li className="locations__item">
-              <NavLink className="locations__item-link tabs__item tabs__item--active" to="#">
-                <span>Amsterdam</span>
-              </NavLink>
-            </li>
-            <li className="locations__item">
-              <NavLink className="locations__item-link tabs__item" to="#">
-                <span>Hamburg</span>
-              </NavLink>
-            </li>
-            <li className="locations__item">
-              <NavLink className="locations__item-link tabs__item" to="#">
-                <span>Dusseldorf</span>
-              </NavLink>
-            </li>
-          </ul>
+          <TabsList/>
         </section>
       </div>
       <div className="cities">

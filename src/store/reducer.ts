@@ -1,11 +1,10 @@
-import mockOffers from "../mocks/offers";
 import {createReducer} from "@reduxjs/toolkit";
 import {setCity, setOffers} from "./action";
 import {Offer} from "../types/Offer";
 import {City} from "../types/Location";
 import {cities, CityLocation} from "../const";
 
-type State = {
+export type State = {
   city: City,
   offers: Offer[]
 }
