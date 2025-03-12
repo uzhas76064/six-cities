@@ -4,6 +4,7 @@ import {City} from "../../types/City";
 import {Location} from "../../types/Location";
 import useMap from "../../hooks/useMap";
 import {Icon, Marker} from "leaflet";
+import {CityLocation} from "../../const";
 
 type MapProps = {
   city: City;
@@ -22,6 +23,8 @@ const Map = ({ city, locations, place = 'cities' }: MapProps): JSX.Element => {
   const map = useMap(mapRef, city);
 
   useEffect(() => {
+    const markers: Marker[] = [];
+
     if (map) {
       locations.forEach(({ latitude: lat, longitude: lng }) => {
         const marker = new Marker({
@@ -32,9 +35,23 @@ const Map = ({ city, locations, place = 'cities' }: MapProps): JSX.Element => {
         marker
           .setIcon(defaultCustomIcon)
           .addTo(map);
+
+        markers.push(marker);
       });
+
+      // @ts-ignore
+      const { latitude: lat, longitude: lng} = CityLocation[city.name];
+      map.setView({ lat, lng });
     }
-  }, [map, locations]);
+
+    return () => {
+      if (map) {
+        markers.forEach((marker) => {
+          map.removeLayer(marker);
+        });
+      }
+    };
+  }, [map, city, locations]);
 
   return <section className={`${place}__map map`} ref={mapRef} />;
 };
