@@ -1,9 +1,9 @@
-import { Card } from '../../components/card/card';
 import {Offer} from "../../types/Offer";
 import Map from "../../components/map/map";
 import {City} from "../../types/City";
 import TabsList from "../../components/tabs-list/tabs-list";
 import PlacesSorter from "../../components/places-sorter/places-sorter";
+import CardsList from "../../components/cards-list/cards-list";
 
 type MainProps = {
     city: City
@@ -34,11 +34,7 @@ const Main = ({ city, offers }: MainProps): JSX.Element => {
               </span>
               <PlacesSorter/>
             </form>
-            <div className="cities__places-list places__list tabs__content">
-              {offers.map((offer: Offer) => {
-                return <Card offer={offer} key={offer.id}/>
-              })}
-            </div>
+            <CardsList offers={offers}/>
           </section>
           <div className="cities__right-section">
             <Map locations={offers.map(offer => offer.location)} city={city}/>
