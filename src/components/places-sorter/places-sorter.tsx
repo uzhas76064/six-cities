@@ -1,7 +1,8 @@
 import {SortingParams} from "../../types/SortingParams";
 
 type PlacesSorterProps = {
-  readonly params: SortingParams
+  readonly params: SortingParams,
+  readonly isOpened: boolean
 }
 
 type PlaceOptionProps = {
@@ -19,9 +20,9 @@ const PlacesOption = ({param}: PlaceOptionProps) => {
   )
 }
 
-const PlacesSorter = ({params}: PlacesSorterProps) => {
+const PlacesSorter = ({params, isOpened}: PlacesSorterProps) => {
   return (
-    <ul className="places__options places__options--custom places__options--opened">
+    <ul className={`places__options places__options--custom ${isOpened ? "places__options--opened" : ""}`} >
       {Object.values(params.params).map((param, index) => {
         return <PlacesOption key={param + String(index)} param={param}/>
       })}
