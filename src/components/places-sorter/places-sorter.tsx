@@ -1,15 +1,15 @@
 import {SortingParams} from "../../types/SortingParams";
-import {useState} from "react";
 import {useAppDispatch, useAppSelector} from "../../hooks/hooks";
 import {setSortingParam} from "../../store/action";
+import {sortOffers} from "../../utils/functions";
 
 type PlacesSorterProps = {
-  readonly params: SortingParams,
-  readonly isOpened: boolean
+   params: SortingParams,
+   isOpened: boolean
 }
 
 type PlaceOptionProps = {
-  readonly param: string,
+   param: string,
   index: number
 }
 
@@ -20,6 +20,7 @@ const PlacesOption = ({param,index}: PlaceOptionProps) => {
   const handleClick = () => {
     console.log(chosenParam, index);
     dispatch(setSortingParam(index));
+    sortOffers(index)
   }
 
   return (

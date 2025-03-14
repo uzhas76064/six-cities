@@ -1,5 +1,12 @@
 import {createReducer} from "@reduxjs/toolkit";
-import {setCity, setOffers, setSortingParam} from "./action";
+import {
+  setCity,
+  setOffers,
+  setSortingHighToLow,
+  setSortingLowToHigh,
+  setSortingMostRate,
+  setSortingParam
+} from "./action";
 import {Offer} from "../types/Offer";
 import {City} from "../types/Location";
 import {cities, CityLocation, sortingParams} from "../const";
@@ -42,5 +49,14 @@ export const reducer = createReducer(initialState, (builder) => {
     })
     .addCase(setSortingParam, (state, action) => {
       state.sortingParams.chosenParam = action.payload
+    })
+    .addCase(setSortingHighToLow, (state) => {
+      state.offers.sort((a, b) => b.price - a.price)
+    })
+    .addCase(setSortingLowToHigh, (state) => {
+      state.offers.sort((a, b) => a.price - b.price)
+    })
+    .addCase(setSortingMostRate, (state) => {
+      state.offers.sort((a, b) => b.rating - a.rating)
     })
 })

@@ -41,6 +41,44 @@ export const mockOffers: Offer[] = [
   },
   {
     id: 2,
+    title: "Luxury Apartment in Downtown",
+    type: "apartment",
+    price: 300,
+    city: {
+      name: "Paris",
+      location: {
+        latitude: 48.8566,
+        longitude: 2.3522,
+        zoom: 12
+      }
+    },
+    location: {
+      latitude: 48.85661,
+      longitude: 2.351499,
+      zoom: 16
+    },
+    isFavorite: true, // Избранное
+    isPremium: true,
+    rating: 4.8,
+    previewImage: "https://images.unsplash.com/photo-1564013799919-ab600027ffc6?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80",
+    description: "A luxurious apartment with a stunning view of the Eiffel Tower.",
+    bedrooms: 2,
+    maxAdults: 4,
+    goods: ["Wi-Fi", "Air conditioning", "Kitchen", "Dishwasher", "Washing machine"],
+    host: {
+      id: 101,
+      name: "Jean Dupont",
+      isPro: true,
+      avatarUrl: "https://images.unsplash.com/photo-1535713875002-d1d0cf377fde?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80"
+    },
+    images: [
+      "https://images.unsplash.com/photo-1564013799919-ab600027ffc6?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80",
+      "https://images.unsplash.com/photo-1494526585095-c41746248156?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80",
+      "https://images.unsplash.com/photo-1502672260266-1c1ef2d93688?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80"
+    ]
+  },
+  {
+    id: 3,
     title: "Cozy Studio near Central Park",
     type: "studio",
     price: 120,
@@ -78,7 +116,7 @@ export const mockOffers: Offer[] = [
     ]
   },
   {
-    id: 3,
+    id: 4,
     title: "Modern Loft in Shibuya",
     type: "loft",
     price: 150,
@@ -116,7 +154,7 @@ export const mockOffers: Offer[] = [
     ]
   },
   {
-    id: 4,
+    id: 5,
     title: "Charming Villa in Tuscany",
     type: "villa",
     price: 300,
