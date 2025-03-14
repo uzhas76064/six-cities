@@ -6,12 +6,13 @@ import CardsList from "../../components/cards-list/cards-list";
 import {useAppSelector} from "../../hooks/hooks";
 
 type MainProps = {
-    offers: Offer[]
+  offers: Offer[],
 }
 
 const Main = ({ offers }: MainProps): JSX.Element => {
   const activeCity = useAppSelector((state) => state.city);
   const filteredOffers = useAppSelector((state) => state.offers.filter((offer) => offer.city.name === state.city.name));
+  const sortingParams = useAppSelector((state) => state.sortingParams);
 
   const offersCount: number = filteredOffers.length;
 
@@ -36,7 +37,7 @@ const Main = ({ offers }: MainProps): JSX.Element => {
                   <use xlinkHref="#icon-arrow-select"></use>
                 </svg>
               </span>
-              <PlacesSorter/>
+              <PlacesSorter params={sortingParams}/>
             </form>
             <CardsList offers={filteredOffers}/>
           </section>

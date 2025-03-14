@@ -1,21 +1,30 @@
-const PlacesSorter = () => {
+import {SortingParams} from "../../types/SortingParams";
+
+type PlacesSorterProps = {
+  readonly params: SortingParams
+}
+
+type PlaceOptionProps = {
+  readonly param: string
+}
+
+const PlacesOption = ({param}: PlaceOptionProps) => {
+  return (
+    <li
+      className="places__option places__option--active"
+      tabIndex={0}
+    >
+      {param}
+    </li>
+  )
+}
+
+const PlacesSorter = ({params}: PlacesSorterProps) => {
   return (
     <ul className="places__options places__options--custom places__options--opened">
-      <li
-        className="places__option places__option--active"
-        tabIndex={0}
-      >
-        Popular
-      </li>
-      <li className="places__option" tabIndex={0}>
-        Price: low to high
-      </li>
-      <li className="places__option" tabIndex={0}>
-        Price: high to low
-      </li>
-      <li className="places__option" tabIndex={0}>
-        Top rated first
-      </li>
+      {Object.values(params.params).map((param, index) => {
+        return <PlacesOption key={param + String(index)} param={param}/>
+      })}
     </ul>
   )
 }
