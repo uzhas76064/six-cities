@@ -9,7 +9,7 @@ import {
 } from "./action";
 import {Offer} from "../types/Offer";
 import {City} from "../types/Location";
-import {cities, CityLocation, sortingParams} from "../const";
+import {cities, CityLocation} from "../const";
 import {SortingParams} from "../types/SortingParams";
 
 export type State = {

@@ -1,7 +1,6 @@
 import {Offer} from "../../types/Offer";
 import Map from "../../components/map/map";
 import TabsList from "../../components/tabs-list/tabs-list";
-import PlacesSorter from "../../components/places-sorter/places-sorter";
 import CardsList from "../../components/cards-list/cards-list";
 import {useAppSelector} from "../../hooks/hooks";
 import PlacesSortingForm from "../../components/places-sorting/places-sorting-form";
