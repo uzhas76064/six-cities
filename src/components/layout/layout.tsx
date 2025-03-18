@@ -1,7 +1,10 @@
 import {Link, Outlet, useLocation} from "react-router-dom";
+import {useAppSelector} from "../../hooks/hooks";
+import {AuthorizationStatus} from "../../const";
 
 const Layout = (): JSX.Element => {
   const location = useLocation();
+  const authorizationStatus= useAppSelector(state => state.authorizationStatus);
 
   return (
     <>
@@ -27,15 +30,18 @@ const Layout = (): JSX.Element => {
                     to="/favorites"
                   >
                     <div className="header__avatar-wrapper user__avatar-wrapper"></div>
-                    <span className="header__user-name user__name">Oliver.conner@gmail.com</span>
-                    <span className="header__favorite-count">3</span>
+                    <span className="header__user-name user__name">
+                      {authorizationStatus === AuthorizationStatus.Authorized ? 'Maks' : 'Sign in'}
+                    </span>
+                    {authorizationStatus === AuthorizationStatus.Authorized ? <span className="header__favorite-count">3</span> : null}
                   </Link>
                 </li>
-                <li className="header__nav-item">
+                {authorizationStatus === AuthorizationStatus.Authorized ?
+                  (<li className="header__nav-item">
                   <Link className="header__nav-link" to="#">
                     <span className="header__signout">Sign out</span>
                   </Link>
-                </li>
+                </li>) : null}
               </ul>
             </nav>
           </div>
@@ -50,4 +56,4 @@ const Layout = (): JSX.Element => {
   )
 }
 
-      export default Layout;
+export default Layout;
