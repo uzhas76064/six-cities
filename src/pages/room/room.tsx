@@ -109,7 +109,7 @@ export const Room = ({offers, nearbyOffers, comments}: RoomProps): JSX.Element =
       <section className="near-places places">
         <h2 className="near-places__title">Other places in the neighbourhood</h2>
         <div className="near-places__list places__list">
-          {nearbyOffers ? nearbyOffers.map((offer) => {return <Card offer={offer}/>}) : "There is no nearby offers"}
+          {nearbyOffers ? nearbyOffers.map((offer) => {return <Card key={offer.id} offer={offer}/>}) : "There is no nearby offers"}
         </div>
       </section>
     </div>

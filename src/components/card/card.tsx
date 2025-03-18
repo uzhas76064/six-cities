@@ -7,7 +7,7 @@ type CardProps = {
 }
 
 const Card = ({offer}:CardProps): JSX.Element => {
-  const {id, price, previewImage, type, rating, description, isPremium, title} = offer;
+  const {id, price, previewImage, type, rating, isPremium, title} = offer;
   const [activeId, setActiveId] = useState<number | null>(null);
 
   const handleMouseOfferEnter = (id: number) => {
@@ -21,7 +21,7 @@ const Card = ({offer}:CardProps): JSX.Element => {
         <span>{isPremium ? "Premium" : "Base"}</span>
       </div>
       <div className="cities__image-wrapper place-card__image-wrapper">
-        <Link to={`/offer/${activeId}`}>
+        <Link to={`/hotels/${activeId}`}>
           <img
             className="place-card__image"
             src={`${previewImage}`}
@@ -52,7 +52,7 @@ const Card = ({offer}:CardProps): JSX.Element => {
           </div>
         </div>
         <h2 className="place-card__name">
-          <Link to={`/offer/${activeId}`}>{description}</Link>
+          <Link to={`/offer/${activeId}`}>{title}</Link>
         </h2>
         <p className="place-card__type">{type}</p>
       </div>
