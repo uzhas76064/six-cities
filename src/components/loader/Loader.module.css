@@ -1,31 +1,54 @@
-.loader {
-  color: #FFF;
-  display: inline-block;
-  position: relative;
-  font-size: 48px;
-  font-family: Arial, Helvetica, sans-serif;
-  box-sizing: border-box;
-}
-.loader::after {
-  content: '';
-  width: 5px;
-  height: 5px;
-  background: currentColor;
-  position: absolute;
-  bottom: 10px;
-  right: -5px;
-  box-sizing: border-box;
-  animation: animloader 1s linear infinite;
+.hotel-loading-spinner {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
 }
 
-@keyframes animloader {
-  0% {
-    box-shadow: 10px 0 rgba(255, 255, 255, 0), 20px 0 rgba(255, 255, 255, 0);
+.suitcase {
+  width: 50px;
+  height: 50px;
+  background-color: #ffa500; /* Оранжевый цвет для чемодана */
+  position: relative;
+  border-radius: 5px;
+  animation: bounce 1.5s infinite ease-in-out;
+}
+
+.suitcase::before {
+  content: '';
+  position: absolute;
+  top: -10px;
+  left: 10px;
+  width: 30px;
+  height: 10px;
+  background-color: #ffa500;
+  border-radius: 3px;
+}
+
+.suitcase::after {
+  content: '';
+  position: absolute;
+  top: -5px;
+  left: 15px;
+  width: 20px;
+  height: 5px;
+  background-color: #fff;
+  border-radius: 2px;
+}
+
+@keyframes bounce {
+  0%, 100% {
+    transform: translateY(0);
   }
   50% {
-    box-shadow: 10px 0 white, 20px 0 rgba(255, 255, 255, 0);
+    transform: translateY(-20px);
   }
-  100% {
-    box-shadow: 10px 0 white, 20px 0 white;
-  }
+}
+
+p {
+  margin-top: 20px;
+  font-size: 18px;
+  color: #333;
+  font-weight: bold;
 }

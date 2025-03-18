@@ -1,5 +1,10 @@
 import styles from "./Loader.module.css"
 
-const Loader = () => <span className={styles.loader}>Loading</span>
+const Loader = () => (
+  <div className={styles.hotelLoadingSpinner}>
+    <div className={styles.suitcase}></div>
+    <p>Loading</p>
+  </div>
+)
 
 export default Loader;
