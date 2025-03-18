@@ -3,6 +3,7 @@ import {CityName, Location} from "./types/Location";
 export const Routes = {
   HOTELS: "/hotels",
   FAVORITE: "/favorite",
+  LOGIN: "/login",
 }
 
 export enum AuthorizationStatus {Unknown, Authorized, NotAuthorized};
