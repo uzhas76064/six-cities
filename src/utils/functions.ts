@@ -1,3 +1,4 @@
+//TODO: Удалить моковые данные полностью и вынести логику сортировки в отдельный хук
 import {setOffers, setSortingHighToLow, setSortingLowToHigh, setSortingMostRate} from "../store/action";
 import offers from "../mocks/offers";
 import {store} from "../store";
