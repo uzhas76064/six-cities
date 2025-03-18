@@ -17,7 +17,7 @@ function App({offers}: OfferProps): JSX.Element {
   return (
   <Routes>
     <Route path="/" element={<Layout/>}>
-      <Route index element={<Main offers={offers} />}/>
+      <Route index element={<Main />}/>
       <Route path="login" element={<Login/>}/>
       <Route path="favorites" element={
         <PrivateRoute>
