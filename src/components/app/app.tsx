@@ -6,14 +6,12 @@ import {Favorites} from "../../pages/favorites/favorites";
 import NotFound from "../../pages/not-found/not-found";
 import {Room} from "../../pages/room/room";
 import PrivateRoute from "../private-route/private-route";
-import {Offer} from "../../types/Offer";
 import {comments} from "../../mocks/comments";
+import {useAppSelector} from "../../hooks/hooks";
 
-type OfferProps = {
-  offers: Offer[];
-}
+function App(): JSX.Element {
+  const offers = useAppSelector(state => state.offers);
 
-function App({offers}: OfferProps): JSX.Element {
   return (
   <Routes>
     <Route path="/" element={<Layout/>}>
@@ -24,7 +22,7 @@ function App({offers}: OfferProps): JSX.Element {
           <Favorites favorites={offers}/>
         </PrivateRoute>
       }/>
-      <Route path="offer/:pageId" element={
+      <Route path="hotels/:pageId" element={
         <PrivateRoute>
           <Room offers={offers} nearbyOffers={offers} comments={comments}/>
         </PrivateRoute>
