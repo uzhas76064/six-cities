@@ -8,6 +8,6 @@ export type User = {
 }
 
 export type UserAuthData = {
-  email: string,
+  login: string,
   password: string,
 }

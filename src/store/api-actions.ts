@@ -6,10 +6,13 @@ import {AxiosInstance} from "axios";
 import {Offer} from "../types/Offer";
 import {AuthorizationStatus, Routes} from "../const";
 import {setAuthorizationStatus, setOffers, setOffersLoading} from "./action";
+import {UserAuthData} from "../types/User";
+import {saveToken} from "../services/token";
 
 const AsyncActions= {
-  FETCH_OFFERS: "offers/fetchOffers",
-  LOGIN: "auth/login"
+    FETCH_OFFERS: "offers/fetchOffers",
+    LOGIN: "auth/login",
+    CHECK_AUTH: 'user/checkAuth'
 }
 
 export const fetchOffersAction = createAsyncThunk<void, undefined, {
@@ -31,7 +34,7 @@ export const checkAuthAction = createAsyncThunk<void, undefined, {
     state: State,
     extra: AxiosInstance
 }>(
-    'user/checkAuth',
+    AsyncActions.CHECK_AUTH,
     async (_arg, {dispatch, extra: api}) => {
         try {
             await api.get(Routes.LOGIN);
@@ -41,3 +44,21 @@ export const checkAuthAction = createAsyncThunk<void, undefined, {
         }
     },
 );
+
+export const loginAction = createAsyncThunk<void, UserAuthData, {
+    dispatch: AppDispatch,
+    state: State,
+    extra: AxiosInstance
+}>(
+    AsyncActions.LOGIN,
+    async ({login: email, password}, {dispatch, extra: api}) => {
+        try {
+            //TODO: проверить наличие пробелов и обработать ситуацию, когда они есть
+            const {data: {token}} = await api.post(Routes.LOGIN, {email, password});
+            saveToken(token);
+            dispatch(setAuthorizationStatus(AuthorizationStatus.Authorized));
+        } catch {
+            dispatch(setAuthorizationStatus(AuthorizationStatus.NotAuthorized));
+        }
+    }
+)

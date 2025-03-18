@@ -26,7 +26,7 @@ export type State = {
 
 const initialState: State = {
   userAuthData: {
-    email: '',
+    login: '',
     password: '',
   },
   areOffersLoaded: false,
