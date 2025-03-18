@@ -13,8 +13,10 @@ import {Offer} from "../types/Offer";
 import {City} from "../types/Location";
 import {AuthorizationStatus, cities, CityLocation} from "../const";
 import {SortingParams} from "../types/SortingParams";
+import {UserAuthData} from "../types/User";
 
 export type State = {
+  userAuthData: UserAuthData,
   authorizationStatus: AuthorizationStatus;
   areOffersLoaded: boolean,
   city: City,
@@ -23,6 +25,10 @@ export type State = {
 }
 
 const initialState: State = {
+  userAuthData: {
+    email: '',
+    password: '',
+  },
   areOffersLoaded: false,
   authorizationStatus: AuthorizationStatus.Unknown,
   city: {
