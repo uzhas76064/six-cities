@@ -1,6 +1,7 @@
 import {createAction} from "@reduxjs/toolkit";
 import {CityName} from "../types/Location";
 import { Offer } from "../types/Offer";
+import {AuthorizationStatus} from "../const";
 
 const Actions = {
   SET_CITY: "offers/chooseCity",
@@ -12,6 +13,7 @@ const Actions = {
   SET_SORTING_MOST_RATE: "sorting/setSortingMostRate",
   SET_ACTIVE_OFFER_ID: "offer/setActiveOfferId",
   SET_OFFERS_LOADING: "offer/setOffersLoading",
+  SET_AUTHORIZATION_STATUS: "offer/setAuthorizationStatus",
 }
 
 export const setCity = createAction<CityName>(Actions.SET_CITY);
@@ -28,3 +30,4 @@ export const setSortingMostRate = createAction(Actions.SET_SORTING_MOST_RATE);
 
 export const setOffersLoading = createAction<boolean>(Actions.SET_OFFERS_LOADING)
 
+export const setAuthorizationStatus = createAction<AuthorizationStatus>(Actions.SET_AUTHORIZATION_STATUS);

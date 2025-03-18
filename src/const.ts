@@ -5,6 +5,8 @@ export const Routes = {
   FAVORITE: "/favorite",
 }
 
+export enum AuthorizationStatus {Unknown, Authorized, NotAuthorized};
+
 export const cities = ['Paris', 'Cologne', 'Brussels', 'Amsterdam', 'Hamburg', 'Dusseldorf'] as const;
 
 export const CityLocation: { [key in CityName]: Location } = {
