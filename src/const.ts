@@ -1,8 +1,11 @@
 import {CityName, Location} from "./types/Location";
 
-export const cities = ['Paris', 'Cologne', 'Brussels', 'Amsterdam', 'Hamburg', 'Dusseldorf'] as const;
+export const Routes = {
+  HOTELS: "/hotels",
+  FAVORITE: "/favorite",
+}
 
-export const sortingParams: readonly string[] = ['Popular', 'Price: low to high', 'Price: high to low', 'Top rated first'];
+export const cities = ['Paris', 'Cologne', 'Brussels', 'Amsterdam', 'Hamburg', 'Dusseldorf'] as const;
 
 export const CityLocation: { [key in CityName]: Location } = {
   'Paris': {
