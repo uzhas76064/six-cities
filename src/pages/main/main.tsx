@@ -5,11 +5,7 @@ import CardsList from "../../components/cards-list/cards-list";
 import {useAppSelector} from "../../hooks/hooks";
 import PlacesSortingForm from "../../components/places-sorting/places-sorting-form";
 
-type MainProps = {
-  offers: Offer[],
-}
-
-const Main = ({ offers }: MainProps): JSX.Element => {
+const Main = (): JSX.Element => {
   const activeCity = useAppSelector((state) => state.city);
   const filteredOffers = useAppSelector((state) => state.offers.filter((offer) => offer.city.name === state.city.name));
 
