@@ -1,7 +1,7 @@
 import {createReducer} from "@reduxjs/toolkit";
 import {
   setCity,
-  setOffers,
+  setOffers, setOffersLoading,
   setSortingHighToLow,
   setSortingLowToHigh,
   setSortingMostRate,
@@ -13,12 +13,14 @@ import {cities, CityLocation} from "../const";
 import {SortingParams} from "../types/SortingParams";
 
 export type State = {
+  areOffersLoaded: boolean,
   city: City,
   offers: Offer[],
   sortingParams: SortingParams
 }
 
 const initialState: State = {
+  areOffersLoaded: false,
   city: {
     name: cities[0],
     location: CityLocation[cities[0]]
@@ -58,5 +60,8 @@ export const reducer = createReducer(initialState, (builder) => {
     })
     .addCase(setSortingMostRate, (state) => {
       state.offers.sort((a, b) => b.rating - a.rating)
+    })
+    .addCase(setOffersLoading, (state, action) => {
+      state.areOffersLoaded = action.payload;
     })
 })

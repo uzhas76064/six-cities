@@ -1,13 +1,16 @@
-import {Offer} from "../../types/Offer";
 import Map from "../../components/map/map";
 import TabsList from "../../components/tabs-list/tabs-list";
 import CardsList from "../../components/cards-list/cards-list";
-import {useAppSelector} from "../../hooks/hooks";
+import {useAppDispatch, useAppSelector} from "../../hooks/hooks";
 import PlacesSortingForm from "../../components/places-sorting/places-sorting-form";
+import Loader from "../../components/loader/loader";
 
 const Main = (): JSX.Element => {
   const activeCity = useAppSelector((state) => state.city);
+  const areOffersLoaded = useAppSelector((state) => state.areOffersLoaded);
   const filteredOffers = useAppSelector((state) => state.offers.filter((offer) => offer.city.name === state.city.name));
+
+  const dispatch = useAppDispatch();
 
   const offersCount: number = filteredOffers.length;
 
@@ -25,7 +28,7 @@ const Main = (): JSX.Element => {
             <h2 className="visually-hidden">Places</h2>
             <b className="places__found">{offersCount} {offersCount > 1 ? "places" : "place"} to stay in {activeCity.name}</b>
             <PlacesSortingForm/>
-            <CardsList offers={filteredOffers}/>
+            {!areOffersLoaded ? <Loader/> : <CardsList offers={filteredOffers}/>}
           </section>
           <div className="cities__right-section">
             <Map locations={filteredOffers.map(offer => offer.location)} city={activeCity}/>
