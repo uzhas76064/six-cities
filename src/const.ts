@@ -4,9 +4,10 @@ export const Routes = {
   HOTELS: "/hotels",
   FAVORITE: "/favorite",
   LOGIN: "/login",
+  COMMENTS: "/comments",
 }
 
-export enum AuthorizationStatus {Unknown, Authorized, NotAuthorized};
+export enum AuthorizationStatus {Unknown, Authorized, NotAuthorized}
 
 export const cities = ['Paris', 'Cologne', 'Brussels', 'Amsterdam', 'Hamburg', 'Dusseldorf'] as const;
 

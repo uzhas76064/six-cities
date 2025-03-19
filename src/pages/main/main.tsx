@@ -14,6 +14,8 @@ const Main = (): JSX.Element => {
 
   const offersCount: number = filteredOffers.length;
 
+  console.log(filteredOffers)
+
   return (
     <>
       <h1 className="visually-hidden">Cities</h1>
