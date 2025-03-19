@@ -21,11 +21,7 @@ function App(): JSX.Element {
           <Favorites favorites={offers}/>
         </PrivateRoute>
       }/>
-      <Route path="hotels/:pageId" element={
-        <PrivateRoute>
-          <Room offers={offers} />
-        </PrivateRoute>
-      }/>
+      <Route path="hotels/:pageId" element={<Room offers={offers}/>}/>
     </Route>
     <Route path="*" element={<NotFound/>}/>
   </Routes>
