@@ -5,6 +5,7 @@ import {AuthorizationStatus} from "../../const";
 const Layout = (): JSX.Element => {
   const location = useLocation();
   const authorizationStatus= useAppSelector(state => state.authorizationStatus);
+  const userData = useAppSelector(state => state.userData);
 
   return (
     <>
@@ -31,9 +32,9 @@ const Layout = (): JSX.Element => {
                   >
                     <div className="header__avatar-wrapper user__avatar-wrapper"></div>
                     <span className="header__user-name user__name">
-                      {authorizationStatus === AuthorizationStatus.Authorized ? 'Maks' : 'Sign in'}
+                      {authorizationStatus === AuthorizationStatus.Authorized ? userData.name : 'Sign in'}
                     </span>
-                    {authorizationStatus === AuthorizationStatus.Authorized ? <span className="header__favorite-count">3</span> : null}
+                    {authorizationStatus === AuthorizationStatus.Authorized ? <span className="header__favorite-count"> 3</span> : null}
                   </Link>
                 </li>
                 {authorizationStatus === AuthorizationStatus.Authorized ?
