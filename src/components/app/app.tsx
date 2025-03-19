@@ -6,7 +6,6 @@ import {Favorites} from "../../pages/favorites/favorites";
 import NotFound from "../../pages/not-found/not-found";
 import {Room} from "../../pages/room/room";
 import PrivateRoute from "../private-route/private-route";
-import {comments} from "../../mocks/comments";
 import {useAppSelector} from "../../hooks/hooks";
 
 function App(): JSX.Element {
@@ -24,7 +23,7 @@ function App(): JSX.Element {
       }/>
       <Route path="hotels/:pageId" element={
         <PrivateRoute>
-          <Room offers={offers} nearbyOffers={offers} comments={comments}/>
+          <Room offers={offers} />
         </PrivateRoute>
       }/>
     </Route>

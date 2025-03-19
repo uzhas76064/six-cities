@@ -3,19 +3,32 @@ import {Offer} from "../../types/Offer";
 import PropertyReviews from "../../components/property-reviews/property-reviews";
 import Map from "../../components/map/map";
 import {Card} from "../../components/card/card";
-import {Comment} from "../../types/Comment";
 import {useAppSelector} from "../../hooks/hooks";
+import {useEffect, useState} from "react";
+import {fetchComments, fetchNearbyPlaces} from "../../services/api";
+import {Comment} from "../../types/Comment";
 
 type RoomProps = {
   offers: Offer[],
-  nearbyOffers: Offer[];
-  comments: Comment[];
 }
 
-export const Room = ({offers, nearbyOffers, comments}: RoomProps): JSX.Element => {
+export const Room = ({offers}: RoomProps): JSX.Element => {
   const {pageId} = useParams();
+  const [comments, setComments] = useState<Comment[]>([]);
+  const [nearbyPlaces, setNearbyPlaces] = useState<Offer[]>([]);
+
   const room = offers.find(offer => offer.id === Number(pageId));
   const activeCity = useAppSelector((state) => state.city);
+
+  useEffect(() => {
+    if (room) {
+      fetchComments(room.id)
+        .then((response) => setComments(response.data))
+
+      fetchNearbyPlaces(room.id)
+        .then((response) => setNearbyPlaces(response.data))
+    }
+  }, [comments, room, nearbyPlaces])
 
   if (!room) {
     return <div className="page">Room not found</div>
@@ -91,7 +104,7 @@ export const Room = ({offers, nearbyOffers, comments}: RoomProps): JSX.Element =
                 {room.host.name}
                 </span>
               <span className="property__user-status">
-                {room.host.isPro ? "Pro" : "Base"}
+                {room.host.isPro ? "Pro" : ""}
                 </span>
             </div>
             <div className="property__description">
@@ -103,13 +116,13 @@ export const Room = ({offers, nearbyOffers, comments}: RoomProps): JSX.Element =
           <PropertyReviews comments={comments}/>
         </div>
       </div>
-      <Map city={activeCity} locations={nearbyOffers.map((offer) => offer.location)} place="property" />
+      <Map city={activeCity} locations={nearbyPlaces.map((offer) => offer.location)} place="property" />
     </section>
     <div className="container">
       <section className="near-places places">
         <h2 className="near-places__title">Other places in the neighbourhood</h2>
         <div className="near-places__list places__list">
-          {nearbyOffers ? nearbyOffers.map((offer) => {return <Card key={offer.id} offer={offer}/>}) : "There is no nearby offers"}
+          {nearbyPlaces ? nearbyPlaces.map((offer) => {return <Card key={offer.id} offer={offer}/>}) : "There is no nearby offers"}
         </div>
       </section>
     </div>
