@@ -5,7 +5,7 @@ import {State} from "../hooks/hooks";
 import {AxiosInstance} from "axios";
 import {Offer} from "../types/Offer";
 import {AuthorizationStatus, Routes} from "../const";
-import {setAuthorizationStatus, setOffers, setOffersLoading} from "./action";
+import {setAuthorizationStatus, setOffers, setOffersLoading, setUserData} from "./action";
 import {UserAuthData} from "../types/User";
 import {saveToken} from "../services/token";
 
@@ -54,9 +54,11 @@ export const loginAction = createAsyncThunk<void, UserAuthData, {
     async ({login: email, password}, {dispatch, extra: api}) => {
         try {
             //TODO: проверить наличие пробелов и обработать ситуацию, когда они есть
-            const {data: {token}} = await api.post(Routes.LOGIN, {email, password});
+            const {data: {token}, data} = await api.post(Routes.LOGIN, {email, password});
+          console.log(data)
             saveToken(token);
             dispatch(setAuthorizationStatus(AuthorizationStatus.Authorized));
+            dispatch(setUserData(data));
         } catch {
             dispatch(setAuthorizationStatus(AuthorizationStatus.NotAuthorized));
         }
