@@ -28,7 +28,7 @@ export const Room = ({offers}: RoomProps): JSX.Element => {
       fetchNearbyPlaces(room.id)
         .then((response) => setNearbyPlaces(response.data))
     }
-  }, [comments, room, nearbyPlaces])
+  }, [])
 
   if (!room) {
     return <div className="page">Room not found</div>
