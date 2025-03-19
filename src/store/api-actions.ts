@@ -9,10 +9,10 @@ import {setAuthorizationStatus, setOffers, setOffersLoading} from "./action";
 import {UserAuthData} from "../types/User";
 import {saveToken} from "../services/token";
 
-const AsyncActions= {
-    FETCH_OFFERS: "offers/fetchOffers",
-    LOGIN: "auth/login",
-    CHECK_AUTH: 'user/checkAuth'
+const AsyncActions = {
+  FETCH_OFFERS: "offers/fetchOffers",
+  LOGIN: "auth/login",
+  CHECK_AUTH: 'user/checkAuth'
 }
 
 export const fetchOffersAction = createAsyncThunk<void, undefined, {
