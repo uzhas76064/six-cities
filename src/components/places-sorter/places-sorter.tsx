@@ -1,7 +1,6 @@
 import {SortingParams} from "../../types/SortingParams";
 import {useAppDispatch, useAppSelector} from "../../hooks/hooks";
 import {setSortingParam} from "../../store/action";
-import {sortOffers} from "../../utils/functions";
 
 type PlacesSorterProps = {
    params: SortingParams,
@@ -20,7 +19,6 @@ const PlacesOption = ({param,index}: PlaceOptionProps) => {
   const handleClick = () => {
     console.log(chosenParam, index);
     dispatch(setSortingParam(index));
-    sortOffers(index)
   }
 
   return (
