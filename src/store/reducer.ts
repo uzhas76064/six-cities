@@ -4,9 +4,6 @@ import {
   setCity,
   setOffers,
   setOffersLoading,
-  setSortingHighToLow,
-  setSortingLowToHigh,
-  setSortingMostRate,
   setSortingParam, setUserData
 } from "./action";
 import {Offer} from "../types/Offer";
@@ -16,7 +13,7 @@ import {SortingParams} from "../types/SortingParams";
 import {User, UserAuthData} from "../types/User";
 
 export type State = {
-  userData: User | null,
+  userData: User,
   userAuthData: UserAuthData,
   authorizationStatus: AuthorizationStatus;
   areOffersLoaded: boolean,
@@ -26,7 +23,14 @@ export type State = {
 }
 
 const initialState: State = {
-  userData: null,
+  userData: {
+      avatarUrl: '',
+      email: '',
+      id: 0,
+      isPro: false,
+      name: '',
+      token: ''
+  },
   userAuthData: {
     login: '',
     password: '',
@@ -63,15 +67,6 @@ export const reducer = createReducer(initialState, (builder) => {
     })
     .addCase(setSortingParam, (state, action) => {
       state.sortingParams.chosenParam = action.payload
-    })
-    .addCase(setSortingHighToLow, (state) => {
-      state.offers.sort((a, b) => b.price - a.price)
-    })
-    .addCase(setSortingLowToHigh, (state) => {
-      state.offers.sort((a, b) => a.price - b.price)
-    })
-    .addCase(setSortingMostRate, (state) => {
-      state.offers.sort((a, b) => b.rating - a.rating)
     })
     .addCase(setOffersLoading, (state, action) => {
       state.areOffersLoaded = action.payload;
