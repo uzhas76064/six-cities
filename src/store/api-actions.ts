@@ -1,6 +1,4 @@
 import {createAsyncThunk} from "@reduxjs/toolkit";
-import {AppDispatch} from "../hooks/hooks";
-import {State} from "../hooks/hooks";
 // @ts-ignore
 import {AxiosInstance} from "axios";
 import {Offer} from "../types/Offer";
@@ -8,6 +6,8 @@ import {AuthorizationStatus, Routes} from "../const";
 import {setAuthorizationStatus, setOffers, setOffersLoading, setUserData} from "./action";
 import {UserAuthData} from "../types/User";
 import {saveToken} from "../services/token";
+import {AppDispatch} from "../hooks";
+import {State} from "./reducer";
 
 const AsyncActions = {
   FETCH_OFFERS: "offers/fetchOffers",

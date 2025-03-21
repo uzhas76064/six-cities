@@ -1,6 +1,6 @@
 import {SortingParams} from "../../types/SortingParams";
-import {useAppDispatch, useAppSelector} from "../../hooks/hooks";
 import {setSortingParam} from "../../store/action";
+import {useAppDispatch, useAppSelector} from "../../hooks";
 
 type PlacesSorterProps = {
    params: SortingParams,
