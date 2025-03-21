@@ -6,7 +6,7 @@ import {Favorites} from "../../pages/favorites/favorites";
 import NotFound from "../../pages/not-found/not-found";
 import {Room} from "../../pages/room/room";
 import PrivateRoute from "../private-route/private-route";
-import {useAppSelector} from "../../hooks/hooks";
+import {useAppSelector} from "../../hooks";
 
 function App(): JSX.Element {
   const offers = useAppSelector(state => state.offers);

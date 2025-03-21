@@ -1,6 +1,6 @@
 import {Link, Outlet, useLocation} from "react-router-dom";
-import {useAppSelector} from "../../hooks/hooks";
 import {AuthorizationStatus} from "../../const";
+import {useAppSelector} from "../../hooks";
 
 const Layout = (): JSX.Element => {
   const location = useLocation();

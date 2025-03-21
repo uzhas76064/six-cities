@@ -1,6 +1,6 @@
 import PlacesSorter from "../places-sorter/places-sorter";
-import {useAppSelector} from "../../hooks/hooks";
 import {useState} from "react";
+import {useAppSelector} from "../../hooks";
 
 const PlacesSortingForm = () => {
   const [isOpened, setIsOpened] = useState<boolean>(false);
