@@ -3,14 +3,12 @@ import TabsList from "../../components/tabs-list/tabs-list";
 import CardsList from "../../components/cards-list/cards-list";
 import PlacesSortingForm from "../../components/places-sorting/places-sorting-form";
 import Loader from "../../components/loader/loader";
-import {useAppDispatch, useAppSelector} from "../../hooks";
+import {useAppSelector} from "../../hooks";
 
 const Main = (): JSX.Element => {
   const activeCity = useAppSelector((state) => state.city);
   const areOffersLoaded = useAppSelector((state) => state.areOffersLoaded);
   const filteredOffers = useAppSelector((state) => state.offers.filter((offer) => offer.city.name === state.city.name));
-
-  const dispatch = useAppDispatch();
 
   const offersCount: number = filteredOffers.length;
 

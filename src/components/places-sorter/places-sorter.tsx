@@ -8,16 +8,14 @@ type PlacesSorterProps = {
 }
 
 type PlaceOptionProps = {
-   param: string,
+  param: string,
   index: number
 }
 
 const PlacesOption = ({param,index}: PlaceOptionProps) => {
   const dispatch = useAppDispatch();
-  const chosenParam = useAppSelector((state) => state.sortingParams.params[index]);
 
   const handleClick = () => {
-    console.log(chosenParam, index);
     dispatch(setSortingParam(index));
   }
 
