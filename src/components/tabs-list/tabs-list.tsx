@@ -1,8 +1,8 @@
 import {cities} from "../../const";
 import LocationsItem from "../locations-item/locations-item";
-import {useAppDispatch, useAppSelector} from "../../hooks/hooks";
 import {setCity} from "../../store/action";
 import {CityName} from "../../types/Location";
+import {useAppDispatch, useAppSelector} from "../../hooks";
 
 const TabsList = () => {
   const activeCity = useAppSelector((state) => state.city);

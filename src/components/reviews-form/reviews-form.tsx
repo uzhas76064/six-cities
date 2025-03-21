@@ -1,6 +1,6 @@
 import {ChangeEvent, FormEvent, useEffect, useState} from "react";
 import {postComment} from "../../services/api";
-import {useAppSelector} from "../../hooks/hooks";
+import {useAppSelector} from "../../hooks";
 
 type ReviewsFormProps = {
   id: number

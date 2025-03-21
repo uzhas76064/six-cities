@@ -1,8 +1,8 @@
 import {Link, Outlet, useNavigate} from "react-router-dom";
 import {FormEvent, useRef} from "react";
-import {useAppDispatch} from "../../hooks/hooks";
 import {UserAuthData} from "../../types/User";
 import {loginAction} from "../../store/api-actions";
+import {useAppDispatch} from "../../hooks";
 
 const Login = (): JSX.Element => {
   const emailRef = useRef<HTMLInputElement | null>(null);

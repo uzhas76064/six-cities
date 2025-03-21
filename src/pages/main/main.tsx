@@ -1,9 +1,9 @@
 import Map from "../../components/map/map";
 import TabsList from "../../components/tabs-list/tabs-list";
 import CardsList from "../../components/cards-list/cards-list";
-import {useAppDispatch, useAppSelector} from "../../hooks/hooks";
 import PlacesSortingForm from "../../components/places-sorting/places-sorting-form";
 import Loader from "../../components/loader/loader";
+import {useAppDispatch, useAppSelector} from "../../hooks";
 
 const Main = (): JSX.Element => {
   const activeCity = useAppSelector((state) => state.city);

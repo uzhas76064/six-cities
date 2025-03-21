@@ -3,10 +3,10 @@ import {Offer} from "../../types/Offer";
 import PropertyReviews from "../../components/property-reviews/property-reviews";
 import Map from "../../components/map/map";
 import {Card} from "../../components/card/card";
-import {useAppSelector} from "../../hooks/hooks";
 import {useEffect, useState} from "react";
 import {fetchComments, fetchNearbyPlaces} from "../../services/api";
 import {Comment} from "../../types/Comment";
+import {useAppSelector} from "../../hooks";
 
 type RoomProps = {
   offers: Offer[],
