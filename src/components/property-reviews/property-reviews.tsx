@@ -5,10 +5,11 @@ import {AuthorizationStatus} from "../../const";
 import ReviewsForm from "../reviews-form/reviews-form";
 
 type PropertyReviewsProps = {
-  comments: Comment[]
+  comments: Comment[],
+  offerId: number,
 }
 
-const PropertyReviews = ({comments}: PropertyReviewsProps) => {
+const PropertyReviews = ({comments, offerId}: PropertyReviewsProps) => {
   const authStatus = useAppSelector((state) => state.authorizationStatus);
 
   return (
@@ -21,7 +22,7 @@ const PropertyReviews = ({comments}: PropertyReviewsProps) => {
           return <ReviewItem key={name+review.date} userAvatar={avatarUrl} userName={name} rating={review.rating} reviewText={review.comment} reviewDate={review.date}/>
         })}
       </ul>
-      {authStatus === AuthorizationStatus.Authorized ? <ReviewsForm/> : null}
+      {authStatus === AuthorizationStatus.Authorized ? <ReviewsForm id={offerId}/> : null}
     </section>
   );
 };

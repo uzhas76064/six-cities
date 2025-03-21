@@ -113,7 +113,7 @@ export const Room = ({offers}: RoomProps): JSX.Element => {
               </p>
             </div>
           </div>
-          <PropertyReviews comments={comments}/>
+          <PropertyReviews comments={comments} offerId={room.id}/>
         </div>
       </div>
       <Map city={activeCity} locations={nearbyPlaces.map((offer) => offer.location)} place="property" />
